@@ -1,0 +1,68 @@
+Aşağıda kodunu düzelttim ve her adımı açıklayan ders notları ekledim. Bu düzeltmelerden sonra yapı sorunsuz çalışacaktır:
+
+### 1. **Struct Yapısı ve Kapsülleme:**
+Struct'lar, aynı amacı taşıyan verileri bir arada tutmak için kullanılır. Bu örnekte, kişisel bilgileri `Kisi` struct'ı içine aldık. Ardından, `Üniversite` struct'ı ile bir üniversitede 37.000 kişiyi saklayacak bir yapı oluşturduk.
+
+### 2. **Fonksiyon Parametreleri:**
+`Insanekle` fonksiyonu, `Üniversite` struct'ına bir kişi eklemek için kullanılıyor. Kişiyi eklerken, kişi sayısını güncelliyoruz.
+
+### 3. **Küresel Değişkenler:**
+Kodda küresel bir değişken hatası var (`kisisayısı` tanımsız). Bu değişkeni `main` içinde tanımlamalı ve fonksiyonlara referans olarak (`&`) geçmelisin.
+
+### 4. **Enum Kullanımı:**
+`Cinsiyet` enum'ını kişi eklerken kullanıyoruz. Fonksiyon içinde enum türünden bir değer almak ve işlem yapmak mümkün.
+
+### Düzeltilmiş Kod:
+
+a1.cpp
+
+### Ders Notları:
+
+1. **Struct'lar ile Veri Kapsülleme:**
+   - `Kisi` struct'ı, bir kişinin tüm bilgilerini (TCKimlik, isim, soyisim, vs.) kapsüller.
+   - `Üniversite` struct'ı, 37.000 kişiyi saklayabilir ve kişi sayısını takip eder.
+
+2. **Fonksiyonlara Referans ile Veri Geçişi:**
+   - `Insanekle` fonksiyonu, kişisel bilgileri alır ve referans ile `Üniversite` struct'ına ekler. Ayrıca kişi sayısını günceller.
+   - `&` sembolü ile referans kullanımı, fonksiyonda yapılan değişikliklerin ana değişkenleri etkilemesini sağlar.
+
+3. **Enum (Cinsiyet) Kullanımı:**
+   - Enum yapıları, belirli seçenekler arasında seçim yapmamızı sağlar. Bu örnekte, `Cinsiyet` enum'ı ile "Kadın" veya "Erkek" seçimi yapıldı.
+   - Yazdırırken `cinsiyet == Erkek` gibi bir kontrol yaparak enum'ı kontrol ettik.
+
+4. **Array ile Veri Saklama:**
+   - `kişiler[37000]` dizisi ile 37.000 kişiyi saklıyoruz. Kişiler eklendikçe `kisisayisi` artarak bir sonraki indeksi dolduruyor.
+
+Bu şekilde kodun artık hatasız bir şekilde çalışacaktır!
+
+
+
+
+
+
+
+
+
+Kodunu `class` yapısına çevirebiliriz. Struct'lar genellikle veri saklamak için kullanılırken, `class` yapısı daha kapsamlıdır ve veri saklamanın yanı sıra fonksiyonlar da içerir. `class` içinde hem verileri saklayabilir hem de ilgili fonksiyonları metodlar olarak tanımlayabilirsin. İşte kodun `class` yapısına çevrilmiş hali:
+
+### `Class` Yapısına Çevrilmiş Kod:
+
+a2.cpp
+
+### Ders Notları:
+
+1. **Kapsülleme (`Encapsulation`):**
+   - **Private Üyeler:** `class`'ın içindeki değişkenler genellikle `private` yapılır. Bu şekilde, dışarıdan doğrudan erişim engellenir. Bilgilere erişmek ve güncellemek için `getter` ve `setter` metodları kullanılır.
+   - `Kisi` sınıfındaki değişkenler (TCKimlik, isim, vs.) private olarak tanımlandı.
+   - `getter` metodları ile bu verilere dışarıdan erişim sağlandı.
+
+2. **Dinamik Hafıza Yönetimi:**
+   - `Universite` sınıfında her bir kişi dinamik olarak (`new Kisi`) eklendi. Bu, büyük veri setleriyle çalışırken faydalıdır.
+   - Daha büyük sistemlerde hafıza yönetimi dikkat gerektirir. `delete` ile dinamik hafıza temizlenmelidir, ancak burada basit bir örnek olduğu için ihmal edildi.
+
+3. **Metodlar ve Davranışlar:**
+   - `Kisi` ve `Universite` sınıflarında her iki sınıfın da kendi fonksiyonları var.
+   - `Kisi` sınıfında, kişisel bilgileri almak (`getter` fonksiyonları) ve bu bilgileri yazdırmak için bir metod tanımlandı.
+   - `Universite` sınıfında, kişileri ekleme ve tüm kişileri yazdırma metodları mevcut.
+
+Bu şekilde, kodu daha yapılandırılmış ve nesne yönelimli hale getirmiş olduk. Bu yapıda her şey sınıflar (class) ile kapsüllendi ve birbirleriyle ilişkili veri ve işlemler düzenli bir şekilde saklandı.
