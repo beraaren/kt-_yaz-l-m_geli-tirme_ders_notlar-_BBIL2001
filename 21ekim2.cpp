@@ -78,16 +78,21 @@ public:
         } else {
             cout << "Liste boş" << endl;
         }
-    }
-
+    }  
+    
     void elemangetir(int index) {
-        if (başlangıç!= nullptr) {
+        if (başlangıç != nullptr) {
             Veritutucu *iter = başlangıç;
-            while (iter!= nullptr) {
-                cout << "İsim: " << iter->veri->isim << ", Soyad: " << iter->veri->soyad << ", Numara: " << iter->veri->numara << ", Yaş: " << iter->veri->yaş << endl;
+            int i = 0;
+            while (iter != nullptr) {
+                if (i == index) {
+                    cout << "İsim: " << iter->veri->isim << ", Soyad: " << iter->veri->soyad << ", Numara: " << iter->veri->numara << ", Yaş: " << iter->veri->yaş << endl;
+                    return;
+                }
                 iter = iter->sonraki;
+                i++;
             }
-            return iter->veri;
+            cout << "Index out of range" << endl;
         } else {
             cout << "Liste boş" << endl;
         }
